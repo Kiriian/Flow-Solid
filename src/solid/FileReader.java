@@ -7,5 +7,5 @@ package solid;
  */
 public class FileReader
 {
-    
+    String hej;
 }
