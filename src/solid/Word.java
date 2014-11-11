@@ -14,4 +14,11 @@ class Word
       this.danishWord = danishWord;
       this.englishWord = englishWord;
   }
+
+    @Override
+    public String toString()
+    {
+        return "" + danishWord + "," + englishWord + "";
+    }
+  
 }
