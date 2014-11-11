@@ -9,7 +9,7 @@ import java.util.Scanner;
  *
  * @author Jeanette og Marta
  */
-public class FileReader
+public class FileHandler
 {
     public static ArrayList<Word> load(String WordList) 
     {
@@ -39,7 +39,7 @@ public class FileReader
             
             
              Word w = new Word(danishWord, englishWord);
-            
+            System.out.println(w);
             WordArray.add(w);  //Reading in a single line and saving in the ArrayList
         }
 
