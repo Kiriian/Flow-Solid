@@ -35,11 +35,11 @@ public class FileHandler
         {  //File found. Reading one line. 
             String linje = file_scanner.nextLine();
             Scanner sc = new Scanner(linje).useDelimiter(",");
-            String danishWord = sc.next();
-            String englishWord = sc.next();
+            String question = sc.next();
+            String guess = sc.next();
             
             
-             Word w = new Word(danishWord, englishWord);
+             Word w = new Word(question, guess);
             System.out.println(w);
             WordArray.add(w);  //Reading in a single line and saving in the ArrayList
         }

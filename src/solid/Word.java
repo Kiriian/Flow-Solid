@@ -6,19 +6,19 @@ package solid;
 
 class Word
 {
-  String danishWord;
-  String englishWord;
+  String question;
+  String guess;
   
   public Word(String danishWord, String englishWord)
   {
-      this.danishWord = danishWord;
-      this.englishWord = englishWord;
+      this.question = danishWord;
+      this.guess = englishWord;
   }
 
     @Override
     public String toString()
     {
-        return "" + danishWord + "," + englishWord + "";
+        return "" + question + "," + guess + "";
     }
   
 }

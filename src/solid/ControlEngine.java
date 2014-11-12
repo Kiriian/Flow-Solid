@@ -31,6 +31,7 @@ public class ControlEngine implements WordPairControlInterface
     
     public boolean checkGuess(String question, String quess)
     {
+        return false;
     }
     
     public String lookup(String question)
