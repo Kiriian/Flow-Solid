@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author martamiszczyk
+ * @author Marta og Jeanette
  */
 public class ControlEngine implements WordPairControlInterface
 {
