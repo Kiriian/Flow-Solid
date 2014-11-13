@@ -5,8 +5,10 @@ package solid;
  */
 public class SolidGUI extends javax.swing.JFrame
 {
+
     WordPairControlInterface WordPair;
-            
+    WordPair question;
+
     public SolidGUI()
     {
         WordPair = new ControlEngine();
@@ -29,7 +31,6 @@ public class SolidGUI extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.setText("Fisk");
         jTextField1.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -42,7 +43,6 @@ public class SolidGUI extends javax.swing.JFrame
 
         jLabel2.setText("Your Guess: ");
 
-        jTextField2.setText("Fish");
         jTextField2.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -123,17 +123,17 @@ public class SolidGUI extends javax.swing.JFrame
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField2ActionPerformed
     {//GEN-HEADEREND:event_jTextField2ActionPerformed
-        
+
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
     {//GEN-HEADEREND:event_jButton1ActionPerformed
-        WordPair.checkGuess(null, null);
+        jTextField1.setText(WordPair.getRandomQuestion());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField1ActionPerformed
     {//GEN-HEADEREND:event_jTextField1ActionPerformed
-        WordPair.getRandomQuestion();
+
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**

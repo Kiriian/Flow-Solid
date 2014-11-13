@@ -6,6 +6,7 @@
 package solid;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -13,7 +14,8 @@ import java.util.ArrayList;
  */
 public class ControlEngine implements WordPairControlInterface
 {
-    ArrayList<WordPair> WordArray;
+    ArrayList<WordPair> wordArray;
+    Random random = new Random();
 
     public void add(String question, String answer)
     {
@@ -28,8 +30,9 @@ public class ControlEngine implements WordPairControlInterface
     {
         load("WordList.txt");
         
-        WordArray.
-        return null;
+        WordPair question = wordArray.get(random.nextInt(3));
+        System.out.println(random);
+        return question.getQuestion();
     }
 
     public boolean checkGuess(String question, String quess)
@@ -44,9 +47,9 @@ public class ControlEngine implements WordPairControlInterface
 
     public boolean load(String WordList)
     {
-        WordArray = FileHandler.load("WordList.txt");
+        wordArray = FileHandler.load("WordList.txt");
 
-        if (WordArray == null)
+        if (wordArray == null)
         {
             System.out.println("der er intet i arraylisten");
             return false; 

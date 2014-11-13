@@ -1,1 +1,2 @@
 Hund,dog
+,fisk,fish,fugl,bird,
