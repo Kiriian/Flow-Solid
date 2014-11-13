@@ -13,8 +13,7 @@ import java.util.ArrayList;
  */
 public class ControlEngine implements WordPairControlInterface
 {
-
-    ArrayList<Word> WordArray;
+    ArrayList<WordPair> WordArray;
 
     public void add(String question, String answer)
     {
@@ -27,6 +26,9 @@ public class ControlEngine implements WordPairControlInterface
 
     public String getRandomQuestion()
     {
+        load("WordList.txt");
+        
+        WordArray.
         return null;
     }
 
@@ -40,7 +42,7 @@ public class ControlEngine implements WordPairControlInterface
         return null;
     }
 
-    public boolean load(String filename)
+    public boolean load(String WordList)
     {
         WordArray = FileHandler.load("WordList.txt");
 

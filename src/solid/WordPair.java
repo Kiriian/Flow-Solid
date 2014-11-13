@@ -1,18 +1,19 @@
 package solid;
+import java.util.Collections;
 
 /**
  * @author Jeanette og Marta
  */
 
-class Word
+class WordPair
 {
   String question;
   String guess;
   
-  public Word(String danishWord, String englishWord)
+  public WordPair(String question, String guess)
   {
-      this.question = danishWord;
-      this.guess = englishWord;
+      this.question = question;
+      this.guess = guess;
   }
 
     @Override
@@ -20,5 +21,4 @@ class Word
     {
         return "" + question + "," + guess + "";
     }
-  
 }

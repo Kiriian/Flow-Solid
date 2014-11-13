@@ -12,10 +12,10 @@ import java.util.Scanner;
  */
 public class FileHandler
 {
-    public static ArrayList<Word> load(String WordList) 
+    public static ArrayList<WordPair> load(String WordList) 
     {
         Scanner file_scanner = null;
-        ArrayList<Word> WordArray = new ArrayList<Word>();
+        ArrayList<WordPair> WordArray = new ArrayList<WordPair>();
 
         try
         {
@@ -39,7 +39,7 @@ public class FileHandler
             String guess = sc.next();
             
             
-             Word w = new Word(question, guess);
+            WordPair w = new WordPair(question, guess);
             System.out.println(w);
             WordArray.add(w);  //Reading in a single line and saving in the ArrayList
         }
@@ -48,7 +48,7 @@ public class FileHandler
         return WordArray;
     }
     
-    public static boolean save(ArrayList<Word> WordArray, String WordList) 
+    public static boolean save(ArrayList<WordPair> WordArray, String WordList) 
     {
         if (WordArray == null)
         {
@@ -59,7 +59,7 @@ public class FileHandler
         try 
         {
             output = new FileWriter(new File(WordList));  //Opening connection to file.
-            for (Word word : WordArray) 
+            for (WordPair word : WordArray) 
             {   //running through the ArrayList.                    
                 output.write(word.toString() + "\n");  //Each String object is written as a line in file.
             }
