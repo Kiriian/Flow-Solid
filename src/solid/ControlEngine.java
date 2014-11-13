@@ -13,46 +13,55 @@ import java.util.ArrayList;
  */
 public class ControlEngine implements WordPairControlInterface
 {
+
     ArrayList<Word> WordArray;
-    
+
     public void add(String question, String answer)
     {
     }
-    
+
     public int size()
     {
         return 0;
     }
-    
+
     public String getRandomQuestion()
     {
         return null;
     }
-    
+
     public boolean checkGuess(String question, String quess)
     {
         return false;
     }
-    
+
     public String lookup(String question)
     {
         return null;
     }
-    
+
     public boolean load(String filename)
     {
         WordArray = FileHandler.load("WordList.txt");
-        
-        return false;
+
+        if (WordArray == null)
+        {
+            System.out.println("der er intet i arraylisten");
+            return false; 
+        } 
+        else
+        {
+            return true;
+        }
     }
-    
+
     public boolean save(String filename)
     {
         return false;
     }
-    
+
     public void clear()
     {
-        
+
     }
 }

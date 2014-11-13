@@ -5,9 +5,11 @@ package solid;
  */
 public class SolidGUI extends javax.swing.JFrame
 {
-    
+    WordPairControlInterface WordPair;
+            
     public SolidGUI()
     {
+        WordPair = new ControlEngine();
         initComponents();
     }
 
