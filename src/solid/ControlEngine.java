@@ -29,9 +29,7 @@ public class ControlEngine implements WordPairControlInterface
     public String getRandomQuestion()
     {
         load("WordList.txt");
-        
-        WordPair question = wordArray.get(random.nextInt(3));
-        System.out.println(random);
+        WordPair question = wordArray.get(random.nextInt(wordArray.size()));
         return question.getQuestion();
     }
 
@@ -51,7 +49,6 @@ public class ControlEngine implements WordPairControlInterface
 
         if (wordArray == null)
         {
-            System.out.println("der er intet i arraylisten");
             return false; 
         } 
         else
