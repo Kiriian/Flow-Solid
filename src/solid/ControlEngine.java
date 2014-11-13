@@ -35,7 +35,11 @@ public class ControlEngine implements WordPairControlInterface
 
     public boolean checkGuess(String question, String quess)
     {
-        return false;
+        load("WordList.txt");
+        
+        WordPair guess = wordArray;
+        
+        return guess.getGuess();
     }
 
     public String lookup(String question)

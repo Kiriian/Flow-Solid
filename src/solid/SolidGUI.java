@@ -123,7 +123,7 @@ public class SolidGUI extends javax.swing.JFrame
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField2ActionPerformed
     {//GEN-HEADEREND:event_jTextField2ActionPerformed
-
+        jTextField2.getText();
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
