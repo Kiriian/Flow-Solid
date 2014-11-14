@@ -14,8 +14,10 @@ import java.util.Random;
  */
 public class ControlEngine implements WordPairControlInterface
 {
-    ArrayList<WordPair> wordArray;
+    private ArrayList<WordPair> wordArray;
     Random random = new Random();
+    private int randomNumber;
+    
 
     public void add(String question, String answer)
     {
@@ -29,17 +31,17 @@ public class ControlEngine implements WordPairControlInterface
     public String getRandomQuestion()
     {
         load("WordList.txt");
-        WordPair question = wordArray.get(random.nextInt(wordArray.size()));
+        randomNumber = random.nextInt(wordArray.size()); 
+        WordPair question = wordArray.get(randomNumber);
         return question.getQuestion();
     }
 
-    public boolean checkGuess(String question, String quess)
+    public boolean checkGuess(String question, String guess)
     {
-        load("WordList.txt");
+        WordPair checkGuess = wordArray.get(randomNumber);
+        System.out.println(checkGuess);
         
-        WordPair guess = wordArray;
-        
-        return guess.getGuess();
+        return true;
     }
 
     public String lookup(String question)
@@ -47,7 +49,7 @@ public class ControlEngine implements WordPairControlInterface
         return null;
     }
 
-    public boolean load(String WordList)
+    public boolean load(String filename)
     {
         wordArray = FileHandler.load("WordList.txt");
 
@@ -63,11 +65,20 @@ public class ControlEngine implements WordPairControlInterface
 
     public boolean save(String filename)
     {
-        return false;
+        FileHandler.save(wordArray, "WordList.txt");
+        
+        if (wordArray == null)
+        {
+            return false; 
+        } 
+        else
+        {
+            return true;
+        }
     }
 
     public void clear()
     {
-
+        
     }
 }

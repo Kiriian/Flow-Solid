@@ -40,7 +40,6 @@ public class FileHandler
             
             
             WordPair w = new WordPair(question, guess);
-            System.out.println(w);
             WordArray.add(w);  //Reading in a single line and saving in the ArrayList
         }
 
