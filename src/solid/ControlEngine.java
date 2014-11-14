@@ -21,9 +21,11 @@ public class ControlEngine implements WordPairControlInterface
 
     public void add(String question, String guess)
     {
+        load("WordList.txt");
+        
         WordPair w = new WordPair (question, guess);
         wordArray.add(w);
-        FileHandler.save(wordArray, "WordList.txt");
+        save("WordList.txt");
     }
 
     public int size()
@@ -40,11 +42,14 @@ public class ControlEngine implements WordPairControlInterface
     }
 
     public boolean checkGuess(String question, String guess)
-    {
-        WordPair checkGuess = wordArray.get(randomNumber);
-        System.out.println(checkGuess);
-        
-        return true;
+   {
+        String input = question + "," + guess;
+        for (int i = 0; i < size(); i++) {
+            if (wordArray.get(i).toString().equals(input)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public String lookup(String question)

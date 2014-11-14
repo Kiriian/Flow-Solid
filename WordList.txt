@@ -1,3 +1,5 @@
 Hund,dog
 fisk,fish
 fugl,bird
+hej,hello
+ko,cow

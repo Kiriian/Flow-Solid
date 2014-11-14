@@ -11,7 +11,7 @@ package solid;
  */
 public interface WordPairControlInterface
 {
-    void add(String question, String answer);
+    void add(String question, String guess);
 
     /**
      * Pre: Post: Returns the number of wordpairs in the collection (not the file).
