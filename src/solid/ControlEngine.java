@@ -17,6 +17,7 @@ public class ControlEngine implements WordPairControlInterface
     private ArrayList<WordPair> wordArray;
     Random random = new Random();
     private int randomNumber;
+    private WordPair question;
     
 
     public void add(String question, String guess)
@@ -37,19 +38,22 @@ public class ControlEngine implements WordPairControlInterface
     {
         load("WordList.txt");
         randomNumber = random.nextInt(wordArray.size()); 
-        WordPair question = wordArray.get(randomNumber);
+        question = wordArray.get(randomNumber);
         return question.getQuestion();
     }
 
     public boolean checkGuess(String question, String guess)
-   {
-        String input = question + "," + guess;
-        for (int i = 0; i < size(); i++) {
-            if (wordArray.get(i).toString().equals(input)) {
-                return true;
-            }
-        }
-        return false;
+    {
+       if (this.question.getGuess().equals(guess))
+       {
+           System.out.println("correct");
+           return true;
+       }
+       else
+       {
+           System.out.println("Wrong");
+           return false;
+       }
     }
 
     public String lookup(String question)

@@ -7,9 +7,6 @@ public class SolidGUI extends javax.swing.JFrame
 {
 
     private WordPairControlInterface WordPair;
-    private WordPair question;
-    private WordPair guess;
-    private String input;
 
     public SolidGUI()
     {
@@ -200,8 +197,7 @@ public class SolidGUI extends javax.swing.JFrame
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
     {//GEN-HEADEREND:event_jButton1ActionPerformed
-        input = jTextField2.getText();
-        WordPair.add(question.getQuestion(), guess.getGuess());
+        WordPair.checkGuess(jTextField1.getText(), jTextField2.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField1ActionPerformed
