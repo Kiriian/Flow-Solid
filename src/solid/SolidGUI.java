@@ -225,7 +225,10 @@ public class SolidGUI extends javax.swing.JFrame
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton3ActionPerformed
     {//GEN-HEADEREND:event_jButton3ActionPerformed
+        String danishWord = jTextField4.getText();
+        String englishWord = jTextField3.getText();
         
+        WordPair.add(danishWord, englishWord);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField3ActionPerformed

@@ -19,8 +19,11 @@ public class ControlEngine implements WordPairControlInterface
     private int randomNumber;
     
 
-    public void add(String question, String answer)
+    public void add(String question, String guess)
     {
+        WordPair w = new WordPair (question, guess);
+        wordArray.add(w);
+        FileHandler.save(wordArray, "WordList.txt");
     }
 
     public int size()
