@@ -60,7 +60,7 @@ public class FileHandler
             output = new FileWriter(new File(WordList));  //Opening connection to file.
             for (WordPair word : WordArray) 
             {   //running through the ArrayList.                    
-                output.write(word.toString() + "\n");  //Each String object is written as a line in file.
+                output.write(word.toString() + "\r\n");  //Each String object is written as a line in file.
             }
             output.close();  //Closing the file
         } 

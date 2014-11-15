@@ -26,6 +26,7 @@ public class ControlEngine implements WordPairControlInterface
         
         WordPair w = new WordPair (question, guess);
         wordArray.add(w);
+        System.out.println("word pair has been saved");
         save("WordList.txt");
     }
 
@@ -44,7 +45,7 @@ public class ControlEngine implements WordPairControlInterface
 
     public boolean checkGuess(String question, String guess)
     {
-       if (this.question.getGuess().equals(guess))
+       if (this.question.getGuess().equalsIgnoreCase(guess))
        {
            System.out.println("correct");
            return true;
