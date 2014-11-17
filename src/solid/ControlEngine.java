@@ -31,7 +31,8 @@ public class ControlEngine implements WordPairControlInterface
 
     public int size()
     {
-        return 0;
+        int size = wordArray.size();
+        return size;
     }
 
     public String getRandomQuestion()
@@ -58,17 +59,19 @@ public class ControlEngine implements WordPairControlInterface
 
     public String lookup(String question)
     {
-        this.question.getGuess();
-        
-        if (question == null)
+        for (WordPair i : wordArray)
         {
-            return null;
+           if (question.equals(i.getQuestion()))
+           {
+               return i.getGuess();
+           }
+           else 
+               if (question.equals(i.getGuess()))
+           {
+               return i.getQuestion();
+           }
         }
-        else
-        {
-            return ;
-        } 
-            
+        return null;   
     }
 
     public boolean load(String filename)
@@ -101,6 +104,7 @@ public class ControlEngine implements WordPairControlInterface
 
     public void clear()
     {
-        
+       wordArray.removeAll(wordArray);
+       
     }
 }
