@@ -14,16 +14,19 @@ import java.util.Random;
  */
 public class ControlEngine implements WordPairControlInterface
 {
+
     private ArrayList<WordPair> wordArray;
+    private ArrayList<WordPair> wordArray2;
+    private ArrayList<WordPair> wordArray3;
     Random random = new Random();
     private int randomNumber;
     private WordPair question;
-    
+    private int tal;
 
     public void add(String question, String guess)
     {
-        
-        WordPair w = new WordPair (question, guess);
+
+        WordPair w = new WordPair(question, guess);
         wordArray.add(w);
         System.out.println("word pair has been saved");
         save("WordList.txt");
@@ -37,42 +40,57 @@ public class ControlEngine implements WordPairControlInterface
 
     public String getRandomQuestion()
     {
-        randomNumber = random.nextInt(wordArray.size()); 
-        question = wordArray.get(randomNumber);
-        return question.getQuestion();
+        tal = random.nextInt(20);
+        if (tal < 11)
+        {
+            randomNumber = random.nextInt(wordArray.size());
+            question = wordArray.get(randomNumber);
+            return question.getQuestion();
+        } else if (tal > 11 && tal < 17)
+        {
+            randomNumber = random.nextInt(wordArray2.size());
+            question = wordArray2.get(randomNumber);
+            return question.getQuestion();
+        } else
+        {
+            randomNumber = random.nextInt(wordArray3.size());
+            question = wordArray3.get(randomNumber);
+            return question.getQuestion();
+        }
     }
 
     public boolean checkGuess(String question, String guess)
     {
-       if (this.question.getGuess().equalsIgnoreCase(guess))
-       {
-           this.question.setValue(this.question.getValue()+1);
-           System.out.println(this.question.getValue());
-           return true;
-       }
-       else
-       {
-           this.question.setValue(this.question.getValue()-1);
-           System.out.println(this.question.getValue());
-           return false;
-       }
+        if (this.question.getGuess().equalsIgnoreCase(guess))
+        {
+            this.question.setValue(this.question.getValue() + 1);
+            if (this.question.getValue() == 4)
+            {
+                wordArray2.add(this.question);
+            }
+            System.out.println(this.question.getValue());
+            return true;
+        } else
+        {
+            this.question.setValue(this.question.getValue() - 1);
+            System.out.println(this.question.getValue());
+            return false;
+        }
     }
 
     public String lookup(String question)
     {
         for (WordPair i : wordArray)
         {
-           if (question.equals(i.getQuestion()))
-           {
-               return i.getGuess();
-           }
-           else 
-               if (question.equals(i.getGuess()))
-           {
-               return i.getQuestion();
-           }
+            if (question.equals(i.getQuestion()))
+            {
+                return i.getGuess();
+            }else if (question.equals(i.getGuess()))
+            {
+                return i.getQuestion();
+            }
         }
-        return null;   
+        return null;
     }
 
     public boolean load(String filename)
@@ -81,9 +99,8 @@ public class ControlEngine implements WordPairControlInterface
 
         if (wordArray == null)
         {
-            return false; 
-        } 
-        else
+            return false;
+        }else
         {
             return true;
         }
@@ -92,12 +109,11 @@ public class ControlEngine implements WordPairControlInterface
     public boolean save(String filename)
     {
         FileHandler.save(wordArray, "WordList.txt");
-        
+
         if (wordArray == null)
         {
-            return false; 
-        } 
-        else
+            return false;
+        } else
         {
             return true;
         }
@@ -105,7 +121,6 @@ public class ControlEngine implements WordPairControlInterface
 
     public void clear()
     {
-       wordArray.removeAll(wordArray);
-       
+        wordArray.removeAll(wordArray);
     }
 }
