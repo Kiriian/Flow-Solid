@@ -308,6 +308,10 @@ public class SolidGUI extends javax.swing.JFrame
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         jTextField6.setText(wordPairInterface.lookup(jTextField5.getText()));
+        if (wordPairInterface.lookup(jTextField5.getText()) == null)
+        {
+            jTextField6.setText("Word doesn't exist");
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed

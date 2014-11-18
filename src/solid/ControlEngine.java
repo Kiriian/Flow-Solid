@@ -37,7 +37,6 @@ public class ControlEngine implements WordPairControlInterface
 
     public String getRandomQuestion()
     {
-        
         randomNumber = random.nextInt(wordArray.size()); 
         question = wordArray.get(randomNumber);
         return question.getQuestion();
