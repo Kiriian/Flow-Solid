@@ -46,10 +46,14 @@ public class ControlEngine implements WordPairControlInterface
     {
        if (this.question.getGuess().equalsIgnoreCase(guess))
        {
+           this.question.setValue(this.question.getValue()+1);
+           System.out.println(this.question.getValue());
            return true;
        }
        else
        {
+           this.question.setValue(this.question.getValue()-1);
+           System.out.println(this.question.getValue());
            return false;
        }
     }

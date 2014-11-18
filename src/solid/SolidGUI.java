@@ -258,13 +258,13 @@ public class SolidGUI extends javax.swing.JFrame
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
     {//GEN-HEADEREND:event_jButton1ActionPerformed
-        wordPairInterface.checkGuess(jTextField1.getText(), jTextField2.getText());
+        //wordPairInterface.checkGuess(jTextField1.getText(), jTextField2.getText());
         
         if (wordPairInterface.checkGuess(jTextField1.getText(), jTextField2.getText()) == true)
         {
             jLabel8.setText("You guessed correct");
         }
-        if (wordPairInterface.checkGuess(jTextField1.getText(), jTextField2.getText()) == false)
+        else
         {
             jLabel8.setText("You guessed wrong");
         }
