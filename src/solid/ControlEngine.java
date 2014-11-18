@@ -68,6 +68,10 @@ public class ControlEngine implements WordPairControlInterface
             {
                 wordArray2.add(this.question);
             }
+            if (this.question.getValue() == 7)
+            {
+                
+            }
             System.out.println(this.question.getValue());
             return true;
         } else
