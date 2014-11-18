@@ -4,3 +4,4 @@ fugl,bird
 hej,hello
 ko,cow
 ugle,owl
+aqurk,cucumber
