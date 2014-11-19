@@ -39,26 +39,35 @@ public class ControlEngine implements WordPairControlInterface
 
     public String getRandomQuestion()
     {
-        tal = random.nextInt(20);
-        
-        if (tal < 14)
+
+        if (!wordArray2.isEmpty() || !wordArray3.isEmpty())
+        {
+            tal = random.nextInt(20);
+
+            if (tal < 14)
+            {
+                randomNumber = random.nextInt(wordArray.size());
+                question = wordArray.get(randomNumber);
+                return question.getQuestion();
+            } else if (tal > 14 && tal < 18)
+            {
+                randomNumber = random.nextInt(wordArray2.size());
+                question = wordArray2.get(randomNumber);
+                return question.getQuestion();
+            } else
+            {
+                randomNumber = random.nextInt(wordArray3.size());
+                question = wordArray3.get(randomNumber);
+                return question.getQuestion();
+            }
+        }
+        else
         {
             randomNumber = random.nextInt(wordArray.size());
             question = wordArray.get(randomNumber);
             return question.getQuestion();
         }
-        else if (tal > 14 && tal < 18)
-        {
-            randomNumber = random.nextInt(wordArray2.size());
-            question = wordArray2.get(randomNumber);
-            return question.getQuestion();
-        }
-        else
-        {
-            randomNumber = random.nextInt(wordArray3.size());
-            question = wordArray3.get(randomNumber);
-            return question.getQuestion();
-        }
+
     }
 
     public boolean checkGuess(String question, String guess)
@@ -67,10 +76,10 @@ public class ControlEngine implements WordPairControlInterface
         {
             this.question.setValue(this.question.getValue() + 1);
             System.out.println(this.question.getValue());
-            
+
             if (this.question.getValue() == 4)
             {
-                WordPair w = new WordPair (question, guess);
+                WordPair w = new WordPair(question, guess);
                 wordArray2.add(w);
                 System.out.println("should have moved");
                 wordArray.remove(w);
@@ -78,14 +87,13 @@ public class ControlEngine implements WordPairControlInterface
             }
             if (this.question.getValue() == 7)
             {
-                WordPair w = new WordPair (this.question.getQuestion(), this.question.getGuess());
+                WordPair w = new WordPair(this.question.getQuestion(), this.question.getGuess());
                 wordArray3.add(w);
                 wordArray2.remove(w);
                 System.out.println("should have moved");
             }
             return true;
-        }
-        else
+        } else
         {
             this.question.setValue(this.question.getValue() - 1);
             System.out.println(this.question.getValue());
@@ -100,8 +108,7 @@ public class ControlEngine implements WordPairControlInterface
             if (question.equals(i.getQuestion()))
             {
                 return i.getGuess();
-            }
-            else if (question.equals(i.getGuess()))
+            } else if (question.equals(i.getGuess()))
             {
                 return i.getQuestion();
             }
@@ -116,7 +123,7 @@ public class ControlEngine implements WordPairControlInterface
         if (wordArray == null)
         {
             return false;
-        }else
+        } else
         {
             return true;
         }
