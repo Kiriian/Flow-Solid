@@ -15,9 +15,9 @@ import java.util.Random;
 public class ControlEngine implements WordPairControlInterface
 {
 
-    private ArrayList<WordPair> wordArray = new ArrayList <WordPair> ();
-    private ArrayList<WordPair> wordArray2 = new ArrayList <WordPair> ();
-    private ArrayList<WordPair> wordArray3 = new ArrayList <WordPair> ();
+    private ArrayList<WordPair> wordArray = new ArrayList<WordPair>();
+    private ArrayList<WordPair> wordArray2 = new ArrayList<WordPair>();
+    private ArrayList<WordPair> wordArray3 = new ArrayList<WordPair>();
     private Random random = new Random();
     private int randomNumber;
     private WordPair question;
@@ -38,7 +38,7 @@ public class ControlEngine implements WordPairControlInterface
 
     public String getRandomQuestion()
     {
-        if (wordArray2.size() < 0 || wordArray3.size() < 0 )
+        if (wordArray2.size() < 0 || wordArray3.size() < 0)
         {
             tal = random.nextInt(20);
 
@@ -58,8 +58,7 @@ public class ControlEngine implements WordPairControlInterface
                 question = wordArray3.get(randomNumber);
                 return question.getQuestion();
             }
-        }
-        else
+        } else
         {
             randomNumber = random.nextInt(wordArray.size());
             question = wordArray.get(randomNumber);
@@ -72,40 +71,46 @@ public class ControlEngine implements WordPairControlInterface
         WordPair temp = null;
         for (WordPair wpObject : wordArray)
         {
-            if( wpObject.getQuestion().equalsIgnoreCase(question))
+            if (wpObject.getQuestion().equalsIgnoreCase(question))
+            {
                 temp = wpObject;
+            }
         }
         for (WordPair wpObject : wordArray2)
         {
-            if( wpObject.getQuestion().equalsIgnoreCase(question))
+            if (wpObject.getQuestion().equalsIgnoreCase(question))
+            {
                 temp = wpObject;
+            }
         }
         for (WordPair wpObject : wordArray3)
         {
-            if( wpObject.getQuestion().equalsIgnoreCase(question))
+            if (wpObject.getQuestion().equalsIgnoreCase(question))
+            {
                 temp = wpObject;
+            }
         }
-        
-        if( temp == null ) {
+
+        if (temp == null)
+        {
             return false;
         }
-        if (   temp.getGuess().equalsIgnoreCase(guess))
+
+        if (temp.getGuess().equalsIgnoreCase(guess))
         {
             temp.setValue(temp.getValue() + 1);
             System.out.println(temp.getValue());
 
             if (temp.getValue() == 4)
             {
-                WordPair w = new WordPair(question, guess);
-                wordArray2.add(w);
-                wordArray.remove(w);
+                wordArray2.add(temp);
+                wordArray.remove(temp);
 
             }
             if (temp.getValue() == 7)
             {
-                WordPair w = new WordPair(temp.getQuestion(), temp.getGuess());
-                wordArray3.add(w);
-                wordArray2.remove(w);
+                wordArray3.add(temp);
+                wordArray2.remove(temp);
             }
             return true;
         } else
