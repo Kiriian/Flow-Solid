@@ -12,14 +12,14 @@ import java.util.Scanner;
  */
 public class FileHandler
 {
-    public static ArrayList<WordPair> load(String WordList) 
+    public static ArrayList<WordPair> load(String filename) 
     {
         Scanner file_scanner = null;
         ArrayList<WordPair> WordArray = new ArrayList<WordPair>();
 
         try
         {
-            file_scanner = new Scanner(new File(WordList));  //Connection to the file using the Scanner object
+            file_scanner = new Scanner(new File(filename));  //Connection to the file using the Scanner object
         } 
         
         catch (FileNotFoundException ex)
@@ -47,7 +47,7 @@ public class FileHandler
         return WordArray;
     }
     
-    public static boolean save(ArrayList<WordPair> WordArray, String WordList) 
+    public static boolean save(ArrayList<WordPair> WordArray, String filename) 
     {
         if (WordArray == null)
         {
@@ -57,7 +57,7 @@ public class FileHandler
 
         try 
         {
-            output = new FileWriter(new File(WordList));  //Opening connection to file.
+            output = new FileWriter(new File(filename));  //Opening connection to file.
             for (WordPair word : WordArray) 
             {   //running through the ArrayList.                    
                 output.write(word.toString() + "\r\n");  //Each String object is written as a line in file.

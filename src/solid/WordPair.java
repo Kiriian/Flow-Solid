@@ -48,6 +48,6 @@ class WordPair
     @Override
     public String toString()
     {
-        return "" + question + "," + guess + "" + value;
+        return "" + question + "," + guess;
     }
 }

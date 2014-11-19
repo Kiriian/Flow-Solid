@@ -15,9 +15,9 @@ import java.util.Random;
 public class ControlEngine implements WordPairControlInterface
 {
 
-    private ArrayList<WordPair> wordArray;
-    private ArrayList<WordPair> wordArray2 = new ArrayList();
-    private ArrayList<WordPair> wordArray3 = new ArrayList();
+    private ArrayList<WordPair> wordArray = new ArrayList <WordPair> ();
+    private ArrayList<WordPair> wordArray2 = new ArrayList <WordPair> ();
+    private ArrayList<WordPair> wordArray3 = new ArrayList <WordPair> ();
     private Random random = new Random();
     private int randomNumber;
     private WordPair question;
@@ -72,12 +72,22 @@ public class ControlEngine implements WordPairControlInterface
 
     public boolean checkGuess(String question, String guess)
     {
-        if (this.question.getGuess().equalsIgnoreCase(guess))
+        WordPair temp = null;
+        for (WordPair wpObject : wordArray)
         {
-            this.question.setValue(this.question.getValue() + 1);
-            System.out.println(this.question.getValue());
+            if( wpObject.getQuestion().equalsIgnoreCase(question))
+                temp = wpObject;
+        }
+        
+        if( temp == null ) {
+            return false;
+        }
+        if (   temp.getGuess().equalsIgnoreCase(guess))
+        {
+            temp.setValue(temp.getValue() + 1);
+            System.out.println(temp.getValue());
 
-            if (this.question.getValue() == 4)
+            if (temp.getValue() == 4)
             {
                 WordPair w = new WordPair(question, guess);
                 wordArray2.add(w);
@@ -85,9 +95,9 @@ public class ControlEngine implements WordPairControlInterface
                 wordArray.remove(w);
 
             }
-            if (this.question.getValue() == 7)
+            if (temp.getValue() == 7)
             {
-                WordPair w = new WordPair(this.question.getQuestion(), this.question.getGuess());
+                WordPair w = new WordPair(temp.getQuestion(), temp.getGuess());
                 wordArray3.add(w);
                 wordArray2.remove(w);
                 System.out.println("should have moved");
@@ -95,14 +105,15 @@ public class ControlEngine implements WordPairControlInterface
             return true;
         } else
         {
-            this.question.setValue(this.question.getValue() - 1);
-            System.out.println(this.question.getValue());
+            temp.setValue(temp.getValue() - 1);
+            System.out.println(temp.getValue());
             return false;
         }
     }
 
     public String lookup(String question)
     {
+        System.out.println(question);
         for (WordPair i : wordArray)
         {
             if (question.equals(i.getQuestion()))
