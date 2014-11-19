@@ -27,7 +27,6 @@ public class ControlEngine implements WordPairControlInterface
     {
         WordPair w = new WordPair(question, guess);
         wordArray.add(w);
-        System.out.println("word pair has been saved");
         save("WordList.txt");
     }
 
@@ -39,8 +38,7 @@ public class ControlEngine implements WordPairControlInterface
 
     public String getRandomQuestion()
     {
-
-        if (!wordArray2.isEmpty() || !wordArray3.isEmpty())
+        if (wordArray2.size() < 0 || wordArray3.size() < 0 )
         {
             tal = random.nextInt(20);
 
@@ -67,13 +65,22 @@ public class ControlEngine implements WordPairControlInterface
             question = wordArray.get(randomNumber);
             return question.getQuestion();
         }
-
     }
 
     public boolean checkGuess(String question, String guess)
     {
         WordPair temp = null;
         for (WordPair wpObject : wordArray)
+        {
+            if( wpObject.getQuestion().equalsIgnoreCase(question))
+                temp = wpObject;
+        }
+        for (WordPair wpObject : wordArray2)
+        {
+            if( wpObject.getQuestion().equalsIgnoreCase(question))
+                temp = wpObject;
+        }
+        for (WordPair wpObject : wordArray3)
         {
             if( wpObject.getQuestion().equalsIgnoreCase(question))
                 temp = wpObject;
@@ -91,7 +98,6 @@ public class ControlEngine implements WordPairControlInterface
             {
                 WordPair w = new WordPair(question, guess);
                 wordArray2.add(w);
-                System.out.println("should have moved");
                 wordArray.remove(w);
 
             }
@@ -100,7 +106,6 @@ public class ControlEngine implements WordPairControlInterface
                 WordPair w = new WordPair(temp.getQuestion(), temp.getGuess());
                 wordArray3.add(w);
                 wordArray2.remove(w);
-                System.out.println("should have moved");
             }
             return true;
         } else
