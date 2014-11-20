@@ -34,7 +34,7 @@ public class WordPair_Test_v3
     {
         // Value to use a Windows or Unix like filesystem.
         // Set to false if you use a Mac or linux variant.
-        boolean WindowsOS = false;
+        boolean WindowsOS = true;
         
         String path = System.getProperty("user.home");
         if(WindowsOS){

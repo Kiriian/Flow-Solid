@@ -1,3 +1,8 @@
 hest,horse
 hus,house
 bord,table
+ugle,owl
+agurk,cucumber
+fugl,bird
+flue,fly
+hej,hello
