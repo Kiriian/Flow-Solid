@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import Logic.ControlEngine;
+import Logic.GameOverException;
 
 /**
  *
@@ -164,7 +165,7 @@ public class WordPair_Test_v3
      * be generated.
      *
      */
-    public void testGetRandomQuestion()
+    public void testGetRandomQuestion() throws GameOverException 
     {
         int testTries = 300;
         boolean horseFound = false;
