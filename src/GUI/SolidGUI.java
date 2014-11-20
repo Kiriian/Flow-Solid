@@ -2,6 +2,7 @@ package GUI;
 
 import Logic.ControlEngine;
 import Logic.WordPairControlInterface;
+import Logic.GameOverException;
 
 /**
  * @author Jeanette og Marta
@@ -299,8 +300,17 @@ public class SolidGUI extends javax.swing.JFrame
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton2ActionPerformed
     {//GEN-HEADEREND:event_jButton2ActionPerformed
-        jTextField1.setText(wordPairInterface.getRandomQuestion());
-        jLabel8.setText("");
+        try
+        {
+            jTextField1.setText(wordPairInterface.getRandomQuestion());
+            jLabel8.setText("");
+        }
+        catch (GameOverException ex)
+        {
+            jLabel8.setText("You have tried all the words");
+        }
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton3ActionPerformed

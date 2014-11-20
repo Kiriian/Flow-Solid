@@ -22,7 +22,7 @@ public interface WordPairControlInterface
      * Pre: At least one word pair must be present Post: Returns a question
      * randomly selected from the collection of word pairs.
      */
-    String getRandomQuestion();
+    String getRandomQuestion() throws GameOverException;
 
     /**
      * Pre: Post: Returns true if (question, quess) exists as a word pair in the

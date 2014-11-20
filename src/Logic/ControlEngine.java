@@ -37,34 +37,41 @@ public class ControlEngine implements WordPairControlInterface
         return size;
     }
 
-    public String getRandomQuestion()
+    public String getRandomQuestion() throws GameOverException
     {
-        if (wordArray2.size() < 0 || wordArray3.size() < 0)
+        try
         {
-            tal = random.nextInt(20);
+            if (wordArray2.size() > 0 || wordArray3.size() > 0)
+            {
+                tal = random.nextInt(20);
 
-            if (tal < 14)
+                if (tal <= 12)
+                {
+                    randomNumber = random.nextInt(wordArray.size());
+                    question = wordArray.get(randomNumber);
+                    return question.getQuestion();
+                } else if (tal >= 12 && tal <= 18)
+                {
+                    randomNumber = random.nextInt(wordArray2.size());
+                    question = wordArray2.get(randomNumber);
+                    return question.getQuestion();
+                } else
+                {
+                    randomNumber = random.nextInt(wordArray3.size());
+                    question = wordArray3.get(randomNumber);
+                    return question.getQuestion();
+                }
+            } else
             {
                 randomNumber = random.nextInt(wordArray.size());
                 question = wordArray.get(randomNumber);
                 return question.getQuestion();
-            } else if (tal > 14 && tal < 18)
-            {
-                randomNumber = random.nextInt(wordArray2.size());
-                question = wordArray2.get(randomNumber);
-                return question.getQuestion();
-            } else
-            {
-                randomNumber = random.nextInt(wordArray3.size());
-                question = wordArray3.get(randomNumber);
-                return question.getQuestion();
             }
-        } else
+        } catch (IllegalArgumentException ex)
         {
-            randomNumber = random.nextInt(wordArray.size());
-            question = wordArray.get(randomNumber);
-            return question.getQuestion();
-        }
+            System.out.print("no more words in wordarray" + "\n");
+            throw new GameOverException();
+        }   
     }
 
     public boolean checkGuess(String question, String guess)
