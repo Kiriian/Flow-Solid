@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package solid;
+package Logic;
 
+import File.FileHandler;
 import java.util.ArrayList;
 import java.util.Random;
 

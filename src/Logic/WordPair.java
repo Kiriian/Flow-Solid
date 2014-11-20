@@ -1,10 +1,10 @@
-package solid;
+package Logic;
 
 /**
  * @author Jeanette og Marta
  */
 
-class WordPair
+public class WordPair
 {
   private String question;
   private String guess;

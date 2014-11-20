@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 //import Entity.Engine;
-import solid.WordPairControlInterface;
+import Logic.WordPairControlInterface;
 import java.util.UUID;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import solid.ControlEngine;
+import Logic.ControlEngine;
 
 /**
  *

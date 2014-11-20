@@ -1,10 +1,11 @@
-package solid;
+package File;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
+import Logic.WordPair;
 
 /**
  *
